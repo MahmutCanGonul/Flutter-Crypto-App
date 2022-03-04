@@ -6,13 +6,17 @@ class CoinCard extends StatelessWidget {
     @required this.name="",
     @required this.symbol="",
     @required this.imageUrl="",
-    @required this.price=0.0
+    @required this.price=0.0,
+    @required this.firstprice=0.0,
+    
   });
 
   String name;
   String symbol;
   String imageUrl;
   double price;
+  double firstprice;
+
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +111,11 @@ class CoinCard extends StatelessWidget {
                   Text(
                     price.toDouble().toString()+" USD",
                     style: TextStyle(
-                      color: (Colors.grey[900])!,
+                      color:  firstprice == price 
+                      ? Colors.black
+                      :  firstprice < price
+                      ? Colors.green
+                      : Colors.red, 
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
