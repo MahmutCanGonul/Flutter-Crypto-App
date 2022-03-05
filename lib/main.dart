@@ -131,8 +131,10 @@ void _getResult()async
 
 @override
 void initState() {
-    _getResult();  
-    Timer.periodic(Duration(seconds: 5), (timer) => _getResult());
+    setState((){
+      _getResult();
+    });
+    Timer.periodic(Duration(seconds: 10), (timer) => _getResult());
     super.initState();
   }
 
